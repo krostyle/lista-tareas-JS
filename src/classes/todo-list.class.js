@@ -1,3 +1,5 @@
+import { Todo } from "./index";
+
 export class TodoList {
     constructor() {
         this.cargarLocalStorage();
@@ -34,5 +36,6 @@ export class TodoList {
 
     cargarLocalStorage() {
         this.todos = (localStorage.getItem('todo')) ? JSON.parse(localStorage.getItem('todo')) : [];
+        this.todo = this.todos.map(obj => Todo.fromJson(obj));
     }
 }
